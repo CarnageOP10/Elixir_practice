@@ -18,3 +18,6 @@ defmodule Tutorials.Recursion.SumDigits do
   end
 
 end
+
+# mix tutorials
+# then make new files in lib
