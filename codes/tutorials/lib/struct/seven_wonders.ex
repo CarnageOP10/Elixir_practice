@@ -25,15 +25,16 @@ defmodule Tutorials.Struct.SevenWonders do
   def print_names(wonders) do
     Enum.each(wonders, fn %{name: name} -> IO.puts(name) end)
   end
+
   @spec filter_by_country([t()], String.t()) :: [t()]
   def filter_by_country(wonders, country) do
     Enum.filter(wonders, fn %{country: c} -> c == country end)
   end
 
-  @spec in_countries_starting_with_i([t]) :: [String.t()]
-  def in_countries_starting_with_i(wonders) do
+  @spec in_countries_starting_with_i([t], String.t()) :: [String.t()]
+  def in_countries_starting_with_i(wonders, start) do
     wonders
-    |> Enum.filter(fn %{country: country} -> String.starts_with?(country, "I") end)
+    |> Enum.filter(fn %{country: country} -> String.starts_with?(country, start) end)
   end
 
   @spec sort_by_country_length([t]) :: [t()]

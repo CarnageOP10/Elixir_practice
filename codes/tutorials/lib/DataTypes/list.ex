@@ -10,7 +10,6 @@ defmodule DataTypes.List do
 
   @spec sum(list(number())) :: number()
   def sum([]), do: 0
-
   def sum([head | tail]) do
     head + sum(tail)
   end
@@ -19,11 +18,11 @@ defmodule DataTypes.List do
   @spec sum_tail_recursive(list(number()), integer()) :: number()
   def sum_tail_recursive(list, acc \\ 0)
   def sum_tail_recursive([], acc), do: acc
-
   def sum_tail_recursive([h | t], acc) do
     sum_tail_recursive(t, acc + h)
   end
-# reverse a list
+
+  # reverse a list
   def rev_list([]), do: []
   def rev_list([h | t]), do: rev_list(t) ++ [h]
 
@@ -31,10 +30,11 @@ defmodule DataTypes.List do
   @spec rev_list_tail_recursive(list(number()), list(number())) :: list(number())
   def rev_list_tail_recursive(list, acc \\ [])
   def rev_list_tail_recursive([], acc), do: acc
-
   def rev_list_tail_recursive([h | t], acc) do
     rev_list_tail_recursive(t, [h | acc])
   end
+
+  # concat two lists
   @spec concat([any()], [any()]) :: [any()]
   def concat(src, dest), do: concat_f(src |> rev_list(), dest)
   defp concat_f([], dest), do: dest
